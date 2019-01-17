@@ -1,12 +1,12 @@
 var pathToRegexp = require('path-to-regexp');
 
-var keywordPath = '/:type-:city(\\d+)B:dir(\\d+)';
+var keywordPath = '/tours/:filter(^[a-zA-Z]\\w+\\d$)?'
 var keys = [];
 // console.log(pathToRegexp.parse('/home/:id'));
 // console.log(pathToRegexp.parse('/:type(\\\\d+)'));
 // console.log(pathToRegexp.parse('/:type-:city([0-9]+)B:dir([0-9]+)'));
-console.log(pathToRegexp(keywordPath, keys));
-console.log(keys);
+// console.log(pathToRegexp(keywordPath, keys).exec('/A100001B126'));
+// console.log(keys);
 // console.log('/whole-2B126'.match(pathToRegexp('/:type-:city([0-9]+)B:dir([0-9]+)')));
 
 
@@ -22,9 +22,9 @@ var PATH_REGEXP = new RegExp([
     '(?:\\:(\\w+)(?:\\(((?:\\\\.|[^\\\\()])+)\\))?|\\(((?:\\\\.|[^\\\\()])+)\\))([+*?])?'
 ].join('|'), 'g');
 
-// console.log('/:type(\d+)?'.match(PATH_REGEXP))
-// console.log(PATH_REGEXP.exec('/:type(\d+)?'))
-// console.log(/(\\.|[^\\()])+/g.exec('\\d+'))
+// console.log(keywordPath.match(PATH_REGEXP))
+console.log(PATH_REGEXP.exec(keywordPath));
+// console.log(/(\\.|[^\\()])+/g.exec('\([A-Z]+\\d+\)+'))
 // console.log('\\'.replace(/([=!:$/()])/g, '\\$1'))
-console.log('\d')
-console.log('\\d')
+// console.log('\d')
+// console.log('\\d')
